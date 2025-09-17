@@ -6,15 +6,12 @@ public class Sum {
             System.out.println(0);
             return;
         }
-        // Объединяем все аргументы в строку
-        String input = String.join(" ", args);
-
-        // Ищем только числа с опциональным знаком + или -
-        Pattern pattern = Pattern.compile("[+-]?\\d+");
-        Matcher matcher = pattern.matcher(input);
-        while (matcher.find()) {
+        String it = String.join(" ", args);
+        Pattern pat = Pattern.compile("[+-]?\\d+");
+        Matcher mat = pat.matcher(it);
+        while (mat.find()) {
             try {
-                int num = Integer.parseInt(matcher.group());
+                int num = Integer.parseInt(mat.group());
                 suma += num;
             } catch (NumberFormatException ignored) {}
         }
